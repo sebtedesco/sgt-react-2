@@ -6,7 +6,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: []
+      grades: [],
+      averageGrade: null
     };
   }
 
@@ -30,23 +31,25 @@ class App extends React.Component {
     const studentObject = this.state.grades;
     const gradesArr = [];
     let sumOfGrades = 0;
-    let averageGrade = null;
+    let gradeAverage = 0;
     for (const index in studentObject) {
       gradesArr.push(studentObject[index].grade);
       sumOfGrades += studentObject[index].grade;
-      averageGrade = sumOfGrades / gradesArr.length;
+      gradeAverage = sumOfGrades / gradesArr.length;
     }
-    return averageGrade;
+    return gradeAverage.toFixed(0);
   }
 
   render() {
+    this.gradeAverage();
     return (
       <>
         <div className="d-flex container w-75 align-items-center">
-          {/* <div className="row w-100 align-items-center"> */}
-          <Header className="col-8" text="Student Grade Table" />
-          <h4 className="col-4 text-right">{`Average Grade: ${this.gradeAverage()}`}</h4>
-          {/* </div> */}
+          <Header
+            className="col-8"
+            text="Student Grade Table"
+            averageGrade={this.gradeAverage()}
+          />
         </div>
         <div className="container w-75">
           <div className="row">
