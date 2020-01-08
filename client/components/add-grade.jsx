@@ -49,7 +49,7 @@ class AddGrade extends React.Component {
 
   render() {
     return (
-      <>
+      <form onSubmit={this.handleAdd} onReset={this.handleCancel}>
         <div className= "input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="inputGroup-sizing-default">{<i className="fas fa-user"></i>}</span>
@@ -68,9 +68,9 @@ class AddGrade extends React.Component {
           </div>
           <input type="number" className="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" value={this.state.grade} placeholder="Grade" onChange={this.handleGradeChange}></input>
         </div>
-        <button type="button" className="btn btn-success mr-2" onClick={this.handleAdd}>Add</button>
-        <button type="button" className="btn btn-secondary ml-2" onClick={this.handleCancel}>Cancel</button>
-      </>
+        <button className="btn btn-success mr-2" type="submit">Add</button>
+        <button className="btn btn-secondary ml-2" type="reset">Cancel</button>
+      </form>
     );
   }
 }
