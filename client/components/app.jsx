@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header';
 import GradeTable from './grade-table';
+import AddGrade from './add-grade';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class App extends React.Component {
       grades: [],
       averageGrade: null
     };
+    this.addNewGrade = this.addNewGrade.bind(this);
   }
 
   componentDidMount() {
@@ -40,11 +42,28 @@ class App extends React.Component {
     return gradeAverage.toFixed(0);
   }
 
+  addNewGrade(newGradeData) {
+    fetch('api/grades', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newGradeData)
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(newGrade => {
+        this.setState(state => ({
+          grades: state.grades.concat(newGrade)
+        }));
+      });
+  }
+
   render() {
-    this.gradeAverage();
     return (
       <>
-        <div className="d-flex container w-75 align-items-center">
+        <div className="d-flex container w-75 align-items-center p-4">
           <Header
             className="col-8"
             text="Student Grade Table"
@@ -52,8 +71,13 @@ class App extends React.Component {
           />
         </div>
         <div className="container w-75">
-          <div className="row">
-            <GradeTable grades={this.state.grades} />
+          <div className="row align-items-top">
+            <div className="col-8">
+              <GradeTable grades={this.state.grades} />
+            </div>
+            <div className="col-4">
+              <AddGrade appRender={this.render} fetchNewGrade={this.addNewGrade} grades={ this.state.grades } />
+            </div>
           </div>
         </div>
       </>

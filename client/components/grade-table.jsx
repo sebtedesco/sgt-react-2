@@ -8,7 +8,7 @@ function Table(props) {
     );
   }
   return (
-    <table className="table">
+    <table className="border w-75 table">
       <thead>
         <tr>
           <th scope="col">Student Name</th>
