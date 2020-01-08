@@ -11,18 +11,6 @@
       "name": "Brendan Eich",
       "course": "JavaScript",
       "grade": 35
-    },
-    {
-      "name": "Bob",
-      "course": "Building",
-      "grade": 23,
-      "id": 3
-    },
-    {
-      "name": "bob",
-      "course": "yes",
-      "grade": 23,
-      "id": 4
     }
   ]
 }
