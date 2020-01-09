@@ -61,26 +61,14 @@ class App extends React.Component {
       });
   }
 
-  deleteGrade(gradeToDeleteId) {
-    let IndexOfObjectToDelete;
-    for (const index in this.state.grades) {
-      if (this.state.grades[index].id === gradeToDeleteId) {
-        IndexOfObjectToDelete = index;
-      }
-    }
+  deleteGrade(gradeToDeleteId, gradeObjectToDelete) {
     fetch(`api/grades/${gradeToDeleteId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      method: 'DELETE'
     })
-      .then(response => {
-        return response.json();
-      })
-      .then(gradeToDeleteId => {
-        this.setState(state => {
-          state.grades.splice(IndexOfObjectToDelete, 1);
-          return { grades: state.grades };
+      .then(() => {
+        this.setState(previousState => {
+          const newObjects = previousState.grades.filter(grade => grade.id !== gradeObjectToDelete.id);
+          return { grades: newObjects };
         });
       });
   }
