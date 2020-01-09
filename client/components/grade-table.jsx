@@ -24,6 +24,7 @@ function Table(props) {
               key={gradeObject.id}
               grade={gradeObject}
               deleteGrade={props.deleteGrade}
+              updateData={props.dataToUpdate}
             />;
           })
         }

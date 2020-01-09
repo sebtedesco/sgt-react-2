@@ -12,6 +12,7 @@ class App extends React.Component {
     };
     this.addNewGrade = this.addNewGrade.bind(this);
     this.deleteGrade = this.deleteGrade.bind(this);
+    this.updateDataTransferToAddGradeFile = this.updateDataTransferToAddGradeFile.bind(this);
   }
 
   componentDidMount() {
@@ -73,6 +74,10 @@ class App extends React.Component {
       });
   }
 
+  updateDataTransferToAddGradeFile(studentGradeData){
+
+  }
+
   render() {
     return (
       <div className="col">
@@ -85,10 +90,10 @@ class App extends React.Component {
         <div className="container w-75">
           <div className="row align-items-top">
             <div className="col-sm-12 col-md-8 col-lg-8">
-              <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade}/>
+              <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade} dataToUpdate={this.updateDataTransferToAddGradeFile}/>
             </div>
             <div className="col-sm-12 col-md-4 col-lg-4">
-              <AddGrade appRender={this.render} fetchNewGrade={this.addNewGrade} grades={ this.state.grades } />
+              <AddGrade appRender={this.render} fetchNewGrade={this.addNewGrade} grades={ this.state.grades } dataToUpdate={/>
             </div>
           </div>
         </div>

@@ -1,17 +1,30 @@
 import React from 'react';
+import AddGrade from './add-grade';
 
-function StudentGrade(props) {
-  const studentGrade = props.grade;
-  return (
-    <tr>
-      <td>{studentGrade.name}</td>
-      <td>{studentGrade.course}</td>
-      <td>{studentGrade.grade}</td>
-      <td className="text-center">
-        <button type="button" className="btn btn-outline-danger btn-sm" onClick={() => { props.deleteGrade(props.grade.id, props.grade); }}>Delete</button>
-      </td>
-    </tr>
-  );
+class StudentGrade extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const studentGrade = this.props.grade;
+    // console.log(studentGrade)
+    return (
+      <tr className="m-2">
+        <td>{studentGrade.name}</td>
+        <td>{studentGrade.course}</td>
+        <td>{studentGrade.grade}</td>
+        {/* <div className="container"> */}
+          {/* <div className="row"> */}
+            <td className="col text-center">
+              <button type="button" className="btn btn-outline-danger btn-sm ml-1 mr-1" onClick={() => { this.props.deleteGrade(this.props.grade.id, this.props.grade); }}>Delete</button>
+              <button type="button" className="btn btn-outline-dark btn-sm ml-1 mr-1" onClick={() => { this.props.deleteGrade(this.props.dataToUpdate(this.props.grade)); }}>Delete</button>
+            </td>
+          {/* </div> */}
+        {/* </div> */}
+      </tr>
+    );
+  }
 }
 
 export default StudentGrade;
