@@ -23,6 +23,7 @@ function Table(props) {
             return <StudentGrade
               key={gradeObject.id}
               grade={gradeObject}
+              deleteGrade={props.deleteGrade}
             />;
           })
         }

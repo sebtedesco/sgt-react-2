@@ -35,6 +35,7 @@ class AddGrade extends React.Component {
   }
 
   handleAdd(event) {
+    event.preventDefault();
     this.props.fetchNewGrade(this.state);
     this.handleCancel();
   }

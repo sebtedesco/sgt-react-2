@@ -11,6 +11,7 @@ class App extends React.Component {
       averageGrade: null
     };
     this.addNewGrade = this.addNewGrade.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
   }
 
   componentDidMount() {
@@ -60,27 +61,38 @@ class App extends React.Component {
       });
   }
 
+  deleteGrade(gradeToDeleteId, gradeObjectToDelete) {
+    fetch(`api/grades/${gradeToDeleteId}`, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        this.setState(previousState => {
+          const newObjects = previousState.grades.filter(grade => grade.id !== gradeObjectToDelete.id);
+          return { grades: newObjects };
+        });
+      });
+  }
+
   render() {
     return (
-      <>
-        <div className="d-flex container w-75 align-items-center p-4">
+      <div className="col">
+        <div className="col-sm-12 col-md-10 col-lg-8 d-flex container w-75 align-items-center p-4">
           <Header
-            className="col-8"
             text="Student Grade Table"
             averageGrade={this.gradeAverage()}
           />
         </div>
         <div className="container w-75">
           <div className="row align-items-top">
-            <div className="col-8">
-              <GradeTable grades={this.state.grades} />
+            <div className="col-sm-12 col-md-8 col-lg-8">
+              <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade}/>
             </div>
-            <div className="col-4">
+            <div className="col-sm-12 col-md-4 col-lg-4">
               <AddGrade appRender={this.render} fetchNewGrade={this.addNewGrade} grades={ this.state.grades } />
             </div>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
