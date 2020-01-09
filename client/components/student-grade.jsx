@@ -7,7 +7,7 @@ class StudentGrade extends React.Component {
   }
 
   render() {
-    // const studentGrade = props.grade;
+    const studentGrade = props.grade;
     // console.log(studentGrade)
     return (
       <tr className="m-2">
