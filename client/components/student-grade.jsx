@@ -15,12 +15,12 @@ class StudentGrade extends React.Component {
         <td>{studentGrade.course}</td>
         <td>{studentGrade.grade}</td>
         {/* <div className="container"> */}
-          {/* <div className="row"> */}
-            <td className="col text-center">
-              <button type="button" className="btn btn-outline-danger btn-sm ml-1 mr-1" onClick={() => { this.props.deleteGrade(this.props.grade.id, this.props.grade); }}>Delete</button>
-              <button type="button" className="btn btn-outline-dark btn-sm ml-1 mr-1" onClick={() => { this.props.deleteGrade(this.props.dataToUpdate(this.props.grade)); }}>Delete</button>
-            </td>
-          {/* </div> */}
+        {/* <div className="row"> */}
+        <td className="col text-center">
+          <button type="button" className="btn btn-outline-danger btn-sm ml-1 mr-1" onClick={() => { this.props.deleteGrade(this.props.grade.id, this.props.grade); }}>Delete</button>
+          <button type="button" className="btn btn-outline-dark btn-sm ml-1 mr-1" onClick={() => { this.props.deleteGrade(this.props.dataToUpdate(this.props.grade)); }}>Delete</button>
+        </td>
+        {/* </div> */}
         {/* </div> */}
       </tr>
     );
