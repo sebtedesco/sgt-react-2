@@ -13,6 +13,7 @@ class App extends React.Component {
     };
     this.addNewGrade = this.addNewGrade.bind(this);
     this.deleteGrade = this.deleteGrade.bind(this);
+    this.updateDataTransferToAddGradeFile = this.updateDataTransferToAddGradeFile.bind(this);
   }
 
   componentDidMount() {

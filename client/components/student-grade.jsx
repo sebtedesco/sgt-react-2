@@ -1,5 +1,5 @@
 import React from 'react';
-
+import AddGrade from './add-grade';
 export default class StudentGrade extends React.Component {
   // constructor(props) {
   //   super(props);
