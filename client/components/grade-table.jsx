@@ -8,7 +8,7 @@ function Table(props) {
     );
   }
   return (
-    <table className="border w-75 table">
+    <table className="border table mx-0">
       <thead>
         <tr>
           <th scope="col">Student Name</th>
@@ -24,6 +24,7 @@ function Table(props) {
               key={gradeObject.id}
               grade={gradeObject}
               deleteGrade={props.deleteGrade}
+              updateGrade={props.updateGrade}
             />;
           })
         }
