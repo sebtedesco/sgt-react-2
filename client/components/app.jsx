@@ -8,7 +8,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       grades: [],
-      averageGrade: null
+      averageGrade: null,
+      gradeToUpdate: null
     };
     this.addNewGrade = this.addNewGrade.bind(this);
     this.deleteGrade = this.deleteGrade.bind(this);
@@ -74,26 +75,27 @@ class App extends React.Component {
       });
   }
 
-  updateDataTransferToAddGradeFile(studentGradeData){
-
-  }
+  // updateGrade(gradeToUpdateId) {
+  //   const gradeArray = [...this.state.grades];
+  //   const arrayToUpdateIndex = gradeArray.findIndex(gradeArray => gradeArray.id === gradeArray);
+  // }
 
   render() {
     return (
       <div className="col">
-        <div className="col-sm-12 col-md-10 col-lg-8 d-flex container w-75 align-items-center p-4">
+        <div className="col-sm-12 col-md-10 col-lg-8 d-flex container w-95 align-items-center py-4">
           <Header
             text="Student Grade Table"
             averageGrade={this.gradeAverage()}
           />
         </div>
-        <div className="container w-75">
+        <div className="container w-95">
           <div className="row align-items-top">
-            <div className="col-sm-12 col-md-8 col-lg-8">
-              <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade} dataToUpdate={this.updateDataTransferToAddGradeFile}/>
+            <div className="col-sm-12 col-md-8 col-lg-9">
+              <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade} updateGrade ={this.updateGrade}/>
             </div>
-            <div className="col-sm-12 col-md-4 col-lg-4">
-              <AddGrade appRender={this.render} fetchNewGrade={this.addNewGrade} grades={ this.state.grades } dataToUpdate={/>
+            <div className="col-sm-12 col-md-4 col-lg-3">
+              <AddGrade appRender={this.render} fetchNewGrade={this.addNewGrade} grades={ this.state.grades } />
             </div>
           </div>
         </div>

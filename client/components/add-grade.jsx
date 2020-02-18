@@ -1,4 +1,5 @@
 import React from 'react';
+// import StudentGrade from './student-grade';
 
 class AddGrade extends React.Component {
   constructor(props) {
@@ -14,6 +15,10 @@ class AddGrade extends React.Component {
     this.handleGradeChange = this.handleGradeChange.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
+
+  // updateGrade(props){
+  //   console.log()
+  // }
 
   handleNameChange(event) {
     this.setState({
