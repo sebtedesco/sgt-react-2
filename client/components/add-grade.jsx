@@ -16,6 +16,10 @@ class AddGrade extends React.Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
+  // updateGrade(props){
+  //   console.log()
+  // }
+
   handleNameChange(event) {
     this.setState({
       name: event.target.value
